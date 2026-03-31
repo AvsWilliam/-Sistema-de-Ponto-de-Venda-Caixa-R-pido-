@@ -31,8 +31,9 @@ public class CaixaRapido {
                 String nome = scanner.nextLine();
                 System.out.print("CVV: ");
                 String cvv = scanner.nextLine();
+                validarCvv (cvv);
                 processador = new PagamentoCartaoCredito(num, nome, cvv);
-                break;
+                break;          
             case 3:
                 processador = new PagamentoBoleto(); 
                 break;
