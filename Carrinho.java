@@ -2,30 +2,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carrinho {
-    private List<Item> itens = new ArrayList<>(); [cite: 58]
+    private List<Item> itens = new ArrayList<>();
 
     public void adicionar(Item item) {
-        itens.add(item); [cite: 62]
+        itens.add(item);
     }
 
     public double total() {
-        return itens.stream().mapToDouble(Item::getPreco).sum(); [cite: 63]
+        return itens.stream().mapToDouble(Item::getPreco).sum(); 
     }
 
     public void exibirItens() {
-        System.out.println("Carrinho:"); [cite: 87]
+        System.out.println("Carrinho:"); 
         for (Item item : itens) {
-            System.out.printf("%s: R$ %.2f\n", item.getDescricao(), item.getPreco()); [cite: 64, 88]
+            System.out.printf("%s: R$ %.2f\n", item.getDescricao(), item.getPreco());
         }
-        System.out.printf("Total: R$ %.2f\n", total()); [cite: 91]
+        System.out.printf("Total: R$ %.2f\n", total()); 
     }
 
-    public void finalizarCompra(ProcessadorPagamento proc) { [cite: 65, 66]
-        double valorTotal = total(); [cite: 67]
-        if (proc.pagar(valorTotal)) { [cite: 68]
-            proc.emitirRecibo(valorTotal); [cite: 69]
+    public void finalizarCompra(ProcessadorPagamento proc) { 
+        double valorTotal = total(); 
+        if (proc.pagar(valorTotal)) { 
+            proc.emitirRecibo(valorTotal); 
         } else {
-            System.out.println("Pagamento recusado..."); [cite: 71]
+            System.out.println("Pagamento recusado..."); 
         }
     }
 }
